@@ -1,0 +1,27 @@
+.weather {
+    display: flex;
+}
+
+.weahterImage {
+    width: 50px !important;
+    height: 50px !important;
+    color: white;
+    margin-right: 10px;
+}
+
+p {
+    color: white;
+    font-weight: 800;
+}
+
+
+@media (max-width : 800px) {
+    .weather {
+        font-size: 5px;
+    }
+
+    .weahterImage {
+        width: 20px !important;
+        height: 20px !important;
+    }
+}

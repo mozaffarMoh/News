@@ -1,0 +1,42 @@
+.sources-news,
+.sourcesDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.sources-news {
+    width: 100%;
+    background-color: rgb(245, 228, 228);
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 800;
+    text-shadow: 5px 5px 20px rgb(95, 87, 87);
+    margin-bottom: 20px;
+}
+
+.source-item {
+    width: fit-content;
+    background-color: rgb(45, 116, 45);
+    color: rgb(236, 214, 214);
+    box-shadow: 1px 1px 20px black;
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: 800;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+
+@media (max-width : 800px) {
+    .source-item {
+        font-size: 12px;
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+}

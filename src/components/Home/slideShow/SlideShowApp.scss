@@ -1,0 +1,40 @@
+.allSlide {
+    background-size: cover;
+    background-color: rgb(11, 11, 46);
+    color: white;
+}
+
+.allSlide1 {
+    background-image:  url('../../../assets/images/news1.jpg');
+}
+
+.allSlide2 {
+    background-image: url('../../../assets/images/news2.jpg');
+}
+
+.allSlide3 {
+    background-image: url('../../../assets/images/news3.jpg');
+}
+
+.slide {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weatherDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+}
+
+@media (max-width : 800px) {
+    h1 {
+        font-size: 20px;
+    }
+}

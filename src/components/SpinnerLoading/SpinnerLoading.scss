@@ -1,0 +1,56 @@
+.animation-parent {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.animation-parent .animation {
+    position: absolute;
+    border-radius: 50%;
+    animation-name: loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1.5s;
+}
+
+.animation-parent .animation1 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 10px solid rgba(88, 88, 19, 0.8);
+    border-left-color: transparent;
+}
+
+.animation-parent .animation2 {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border: 10px solid rgb(32, 29, 28, 0.8);
+    border-bottom-color: transparent;
+}
+
+.animation-parent .animation3 {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border: 10px solid rgb(68, 69, 221, 0.8);
+    border-top-color: transparent;
+}
+
+
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+        -webkit-animation: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(1turn);
+        -webkit-animation: rotate(1turn);
+    }
+}

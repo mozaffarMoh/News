@@ -1,0 +1,13 @@
+.icon {
+   margin-right: 10px;
+}
+
+
+@media (max-width : 800px) {
+   .dateTime {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 5px;
+   }
+}

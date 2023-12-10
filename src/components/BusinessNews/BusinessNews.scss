@@ -1,0 +1,72 @@
+.business-news,
+.pagination,
+.card,
+.card-button,
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.business-news {
+    background-color: rgb(245, 228, 228);
+    padding: 30px;
+}
+
+.pagination {
+    justify-content: center;
+    height: 50px;
+}
+
+.paginationItem {
+    margin-left: 20px;
+}
+
+.card {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between !important;
+    width: 48%;
+    height: 700px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 3px solid rgb(238, 220, 220);
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 20px 5px gainsboro;
+}
+
+.card-img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-text {
+    color: gray;
+    font-weight: 400;
+}
+
+.card-button {
+    width: 100%;
+    height: 50px;
+    font-weight: 800;
+    color: white;
+    align-self: flex-end;
+}
+
+@media (max-width : 800px) {
+
+    .business-news {
+        flex-direction: column;
+    }
+
+
+    .card {
+        width: 70%;
+    }
+
+    .card-button {
+        height: 35px;
+    }
+
+}
