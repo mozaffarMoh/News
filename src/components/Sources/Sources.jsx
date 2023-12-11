@@ -4,6 +4,7 @@ import React from "react";
 import Header from "../Header/Header";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const Sources = () => {
   const [spinner, setSpinner] = React.useState(false);
@@ -85,6 +86,7 @@ const Sources = () => {
           </div>
         )}
       </div>
+        <Footer />
     </div>
   );
 };

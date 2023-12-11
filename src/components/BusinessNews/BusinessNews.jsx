@@ -4,13 +4,14 @@ import React from "react";
 import { Button, Card, Pagination } from "react-bootstrap";
 import Header from "../Header/Header";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
+import Footer from "../Footer/Footer";
 
 const BusinessNews = () => {
   const [spinner, setSpinner] = React.useState(false);
   const [articles, setArticles] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(1);
   const itemsPerPage = 8;
-  
+
   /* Get All News */
   React.useEffect(() => {
     const getBusinessNews = async () => {
@@ -104,6 +105,7 @@ const BusinessNews = () => {
           })}
         </div>
       )}
+      <Footer />
     </div>
   );
 };

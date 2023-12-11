@@ -4,6 +4,7 @@ import React from "react";
 import { Button, Card, Pagination } from "react-bootstrap";
 import Header from "../Header/Header";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
+import Footer from "../Footer/Footer";
 
 const AllNews = () => {
   const [spinner, setSpinner] = React.useState(false);
@@ -104,6 +105,7 @@ const AllNews = () => {
           })}
         </div>
       )}
+      <Footer />
     </div>
   );
 };

@@ -1,0 +1,21 @@
+.footer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(25, 25, 32);
+    color: white;
+    font-weight: 800;
+    padding: 20px;
+}
+
+
+.icon {
+    margin-left: 15px;
+}
+
+p {
+    margin-top: 20px;
+}
