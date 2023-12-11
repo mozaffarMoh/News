@@ -9,9 +9,9 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://github.com/ferasMoh/News/",
+  "homepage": "https://ferasMoh.github.io/News/",
   "dependencies": {
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
