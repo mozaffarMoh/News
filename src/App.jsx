@@ -13,7 +13,7 @@ import Home from "./components/Home/Home";
 function App() {
   return (
     <div>
-      <Router>
+      <Router basename="/News">
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/all-news" element={<AllNews />} />
