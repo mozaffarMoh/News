@@ -1,7 +1,6 @@
 import axios from "axios";
 import React from "react";
 import "./DataTime.scss";
-import * as moment from "Moment";
 import { Clock, Calendar2Check } from "react-bootstrap-icons";
 
 const DateTime = () => {
@@ -25,13 +24,14 @@ const DateTime = () => {
 
   return (
     <div className="dateTime">
-      <p>
+      <div className="item">
         <Calendar2Check className="icon" />
-        {dateTime.date}
-        <br />
+        <p>{dateTime.date}</p>
+      </div>
+      <div className="item">
         <Clock className="icon" />
-        {dateTime.time_12}
-      </p>
+        <p>{dateTime.time_12}</p>
+      </div>
     </div>
   );
 };

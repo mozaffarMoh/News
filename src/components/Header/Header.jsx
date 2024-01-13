@@ -7,6 +7,7 @@ import DateTime from "../DateTime/DateTime";
 import { Image, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ToolTip from "../ToolTip/ToolTip";
+import favicon from "../../../favicon.ico";
 
 const Header = () => {
   const homePath = window.location.pathname === "/News/all-news";
@@ -21,7 +22,7 @@ const Header = () => {
           <Nav className="me-auto navLinks">
             <Link to="/News/">
               <ToolTip id="t1" title="Back To Home">
-                <Image src="../../../favicon.ico" className="brandLogo" />
+                <Image src={favicon} className="brandLogo" />
               </ToolTip>
             </Link>
             <Link

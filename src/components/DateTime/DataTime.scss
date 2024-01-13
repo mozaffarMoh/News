@@ -1,13 +1,37 @@
-.icon {
+.dateTime,
+.dateTime .item {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.dateTime {
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: flex-start;
+   height: fit-content;
+   color: white !important;
+}
+
+
+.dateTime .item {
+   justify-content: space-between !important;
+   width: 100%;
+   height: 30px;
+   p {
+      font-size: 16px;
+      font-weight: 800;
+   }
+}
+
+
+.dateTime .icon {
    margin-right: 10px;
 }
 
 
 @media (max-width : 800px) {
-   .dateTime {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+   .dateTime .item p {
       font-size: 12px;
    }
 }

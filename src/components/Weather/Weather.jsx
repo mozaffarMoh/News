@@ -21,8 +21,10 @@ const Weather = () => {
         );
 
         setWeatherStatus(response.data.weather[0].main);
-        const tempToFehrenhit = Math.floor((response.data.main.temp - 273.15) * 9/5 + 32);
-        
+        const tempToFehrenhit = Math.floor(
+          ((response.data.main.temp - 273.15) * 9) / 5 + 32
+        );
+
         setTemp(tempToFehrenhit);
       } catch (error) {
         console.log(error);
@@ -50,11 +52,15 @@ const Weather = () => {
 
   return (
     <div className="weather">
-      <Image src={weatherCondition()} alt=" Img" className="weahterImage" />
-      <p>
-        {weatherStatus} <br />
-        {temp} ℉
-      </p>
+      <div className="item">
+        <Image src={weatherCondition()} alt=" Img" className="weahterImage" />
+      </div>
+      <div className="item">
+        <p>
+          {weatherStatus} <br />
+          {temp} ℉
+        </p>
+      </div>
     </div>
   );
 };
