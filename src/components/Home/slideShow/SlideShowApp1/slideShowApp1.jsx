@@ -14,7 +14,7 @@ const SlideShowApp1 = () => {
       <div className="slide">
         <h1>WATCH ALL BREAKING NEWS</h1>
         <Button variant="success">
-          <Link to="/all-news">GO TO NEWS</Link>
+          <Link to="/News/all-news">GO TO NEWS</Link>
         </Button>
       </div>
     </div>

@@ -19,20 +19,32 @@ const Header = () => {
         <Weather />
         <NavItem>
           <Nav className="me-auto navLinks">
-            <Link to="/News">
+            <Link to="/News/">
               <ToolTip id="t1" title="Back To Home">
                 <Image src="../../../favicon.ico" className="brandLogo" />
               </ToolTip>
             </Link>
-            <Nav.Link href="/News/all-news" className={homePath && "active"}>
+
+            <Link
+              to="/News/all-news"
+              className={`nav-link ${homePath && "active"}`}
+            >
               ALL-NEWS
-            </Nav.Link>
-            <Nav.Link href="/News/business-news" className={techPath && "active"}>
+            </Link>
+
+            <Link
+              to="/News/business-news"
+              className={`nav-link ${techPath && "active"}`}
+            >
               BUSINESS_NEWS
-            </Nav.Link>
-            <Nav.Link href="/News/sources" className={sourcesPath && "active"}>
+            </Link>
+
+            <Link
+              to="/News/sources"
+              className={`nav-link ${sourcesPath && "active"}`}
+            >
               SOURCES
-            </Nav.Link>
+            </Link>
           </Nav>
         </NavItem>
         <DateTime />

@@ -1,9 +1,5 @@
 import "./App.scss";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AllNews from "./components/AllNews/AllNews";
 import BusinessNews from "./components/BusinessNews/BusinessNews";
 import Sources from "./components/Sources/Sources";
@@ -13,12 +9,12 @@ import Home from "./components/Home/Home";
 function App() {
   return (
     <div>
-      <Router basename="/News">
+      <Router>
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/all-news" element={<AllNews />} />
-          <Route path="/business-news" element={<BusinessNews />} />
-          <Route path="/sources" element={<Sources />} />
+          <Route path="/News/" element={<Home />} />
+          <Route path="/News/all-news" element={<AllNews />} />
+          <Route path="/News/business-news" element={<BusinessNews />} />
+          <Route path="/News/sources" element={<Sources />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
