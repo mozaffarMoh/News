@@ -7,16 +7,16 @@ const Footer = () => {
     <div className="footer">
       <div>
         <Link to="https://web.whatsapp.com" target="_blank">
-          <Whatsapp className="icon" size={23} />
+          <Whatsapp className="icon" />
         </Link>
         <Link to="https://web.telegram.org" target="_blank">
-          <Telegram className="icon" size={23} />
+          <Telegram className="icon" />
         </Link>
         <Link to="https://www.linkedin.com" target="_blank">
-          <Linkedin className="icon" size={23} />
+          <Linkedin className="icon" />
         </Link>
         <Link to="https://www.facebook.com" target="_blank">
-          <Facebook className="icon" size={23} />
+          <Facebook className="icon" />
         </Link>
       </div>
       <div>
