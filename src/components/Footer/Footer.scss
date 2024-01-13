@@ -18,4 +18,16 @@
 
 p {
     margin-top: 20px;
+    font-weight: 400;
+}
+
+
+@media (max-width : 500px) {
+    .icon {
+        width : 20px;
+        height: 20px;
+    }
+    .footer p{
+        font-size: 12px;
+    }
 }

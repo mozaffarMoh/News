@@ -24,21 +24,18 @@ const Header = () => {
                 <Image src="../../../favicon.ico" className="brandLogo" />
               </ToolTip>
             </Link>
-
             <Link
               to="/News/all-news"
               className={`nav-link ${homePath && "active"}`}
             >
               ALL-NEWS
             </Link>
-
             <Link
               to="/News/business-news"
               className={`nav-link ${techPath && "active"}`}
             >
               BUSINESS_NEWS
             </Link>
-
             <Link
               to="/News/sources"
               className={`nav-link ${sourcesPath && "active"}`}
