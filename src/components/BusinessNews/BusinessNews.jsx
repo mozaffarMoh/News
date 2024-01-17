@@ -18,9 +18,16 @@ const BusinessNews = () => {
       setSpinner(true);
       try {
         const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=38e8d11b8e004bc490b94ce7b351489f"
+          "https://v3.football.api-sports.io/leagues/",
+          {
+            headers: {
+              "x-rapidapi-key": "6bb06592af572ec130509dea4cf1048e",
+              "x-rapidapi-host": "v3.football.api-sports.io",
+            },
+          }
         );
-        setArticles(response.data.articles);
+        setArticles(response.data.response);
+        console.log(response.data.response)
         setSpinner(false);
       } catch (error) {
         setSpinner(false);
@@ -74,7 +81,7 @@ const BusinessNews = () => {
         <div className="business-news">
           {articlesToDisplay.map((article, index) => {
             return (
-              <Card className="card" key={index}>
+           /*    <Card className="card" key={index}>
                 <Card.Img
                   src={article.urlToImage}
                   width={"100%"}
@@ -100,7 +107,8 @@ const BusinessNews = () => {
                   </Button>
                 </Card.Body>
                 <br />
-              </Card>
+              </Card> */
+              <div></div>
             );
           })}
         </div>
