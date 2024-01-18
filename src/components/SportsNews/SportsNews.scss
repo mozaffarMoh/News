@@ -1,8 +1,8 @@
 .business-news,
 .pagination,
 .card,
-.card-button,
-.card-body {
+.card-fields,
+.card-field {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -28,30 +28,32 @@
     flex-wrap: nowrap;
     justify-content: space-between !important;
     width: 48%;
-    height: 700px;
+    min-height: 500px;
+    height: 100%;
     margin-top: 20px;
-    border-radius: 20px;
     border: 3px solid rgb(238, 220, 220);
     background-color: whitesmoke;
     box-shadow: 5px 5px 20px 5px gainsboro;
+    padding: 20px;
 }
 
-.card-img {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-.card-text {
-    color: gray;
-    font-weight: 400;
-}
-
-.card-button {
+.card-fields {
     width: 100%;
-    height: 50px;
-    font-weight: 800;
-    color: white;
-    align-self: flex-end;
+    justify-content: space-around;
+}
+
+.card-field {
+    flex-direction: column;
+}
+
+.flag-image {
+    width: 70px;
+    height: 100px;
+}
+
+.league-image {
+    width: 150px;
+    height: 100px;
 }
 
 @media (max-width : 800px) {
@@ -60,13 +62,19 @@
         flex-direction: column;
     }
 
-
     .card {
-        width: 70%;
+        width: 350px;
     }
 
-    .card-button {
-        height: 35px;
+    .flag-image {
+        width: 100px;
+        height: 100px;
     }
+
+    .league-image {
+        width: 100px;
+        height: 100px;
+    }
+
 
 }

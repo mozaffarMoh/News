@@ -1,12 +1,12 @@
-import "./BusinessNews.scss";
+import "./SportsNews.scss";
 import axios from "axios";
 import React from "react";
-import { Button, Card, Pagination } from "react-bootstrap";
+import { Card, Pagination, Table } from "react-bootstrap";
 import Header from "../Header/Header";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 import Footer from "../Footer/Footer";
 
-const BusinessNews = () => {
+const SportsNews = () => {
   const [spinner, setSpinner] = React.useState(false);
   const [articles, setArticles] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -27,11 +27,9 @@ const BusinessNews = () => {
           }
         );
         setArticles(response.data.response);
-        console.log(response.data.response)
         setSpinner(false);
       } catch (error) {
         setSpinner(false);
-        console.log(error);
       }
     };
     getBusinessNews();
@@ -57,7 +55,7 @@ const BusinessNews = () => {
           onClick={() => changePage(currentPage - 1)}
           disabled={currentPage === 1}
         />
-        {paginationArray.map((page, index) => {
+        {paginationArray.slice(0, 10).map((page, index) => {
           return (
             <Pagination.Item
               className="paginationItem"
@@ -75,47 +73,72 @@ const BusinessNews = () => {
           disabled={currentPage === totalPages}
         />
       </Pagination>
+
       {spinner ? (
         <SpinnerLoading />
       ) : (
         <div className="business-news">
           {articlesToDisplay.map((article, index) => {
             return (
-           /*    <Card className="card" key={index}>
-                <Card.Img
-                  src={article.urlToImage}
-                  width={"100%"}
-                  height={"50%"}
-                />
-                <Card.Body className="card-body">
-                  <Card.Text>
-                    Date :{" "}
-                    {article.publishedAt.replace("T", "  -  ").slice(0, -1)}
-                  </Card.Text>
-                  <Card.Text>Source : {article.source.name}</Card.Text>
-                  <Card.Title className="card-img">{article.title}</Card.Title>
-                  <Card.Text className="card-text">
-                    {article.description}
-                  </Card.Text>
-                  <Button
-                    href={article.url}
-                    target="_blank"
-                    variant="warning"
-                    className="card-button"
-                  >
-                    READ MORE ...
-                  </Button>
-                </Card.Body>
+              <Card className="card" key={index}>
+                <div className="card-fields">
+                  {/* Flag image */}
+                  <div className="card-field">
+                    {article.country.flag ? (
+                      <Card.Img
+                        src={article.country.flag}
+                        className="flag-image"
+                      />
+                    ) : (
+                      <h1>World</h1>
+                    )}
+                    <Card.Text>{article.country.name}</Card.Text>
+                  </div>
+
+                  {/* League Image */}
+                  <div className="card-field">
+                    {article.league.logo && (
+                      <Card.Img
+                        src={article.league.logo}
+                        className="league-image"
+                      />
+                    )}
+                    <Card.Text> {article.league.name}</Card.Text>
+                  </div>
+                </div>
+
+                {/* Seasons */}
+                <Table hover striped bordered>
+                  <thead>
+                    <tr>
+                      <th>Year</th>
+                      <th>Start</th>
+                      <th>End</th>
+                    </tr>
+                  </thead>
+
+                  {article.seasons.map((season, index) => {
+                    return (
+                      <tbody className="seasons" key={index}>
+                        <tr>
+                          <td>{season.year}</td>
+                          <td>{season.start}</td>
+                          <td>{season.end}</td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
+                </Table>
                 <br />
-              </Card> */
-              <div></div>
+              </Card>
             );
           })}
         </div>
       )}
+
       <Footer />
     </div>
   );
 };
 
-export default BusinessNews;
+export default SportsNews;

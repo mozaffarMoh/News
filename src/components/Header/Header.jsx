@@ -11,7 +11,7 @@ import favicon from "../../../favicon.ico";
 
 const Header = () => {
   const homePath = window.location.pathname === "/News/all-news";
-  const techPath = window.location.pathname === "/News/business-news";
+  const sportsPath = window.location.pathname === "/News/sports-news";
   const sourcesPath = window.location.pathname === "/News/sources";
 
   return (
@@ -29,13 +29,13 @@ const Header = () => {
               to="/News/all-news"
               className={`nav-link ${homePath && "active"}`}
             >
-              ALL-NEWS
+              BREAKING-NEWS
             </Link>
             <Link
-              to="/News/business-news"
-              className={`nav-link ${techPath && "active"}`}
+              to="/News/sports-news"
+              className={`nav-link ${sportsPath && "active"}`}
             >
-              BUSINESS_NEWS
+              SPORTS
             </Link>
             <Link
               to="/News/sources"
