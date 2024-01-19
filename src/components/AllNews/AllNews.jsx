@@ -1,7 +1,7 @@
 import "./AllNews.scss";
 import axios from "axios";
 import React from "react";
-import { Button, Card, Pagination } from "react-bootstrap";
+import { Button, Card, Pagination, Spinner } from "react-bootstrap";
 import Header from "../Header/Header";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 import Footer from "../Footer/Footer";
@@ -9,6 +9,7 @@ import Footer from "../Footer/Footer";
 const AllNews = () => {
   const [spinner, setSpinner] = React.useState(false);
   const [articles, setArticles] = React.useState([]);
+  const [imagesArray, setImagesArray] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(1);
   const itemsPerPage = 8;
 
@@ -38,6 +39,14 @@ const AllNews = () => {
 
   const changePage = (page) => {
     setCurrentPage(page);
+  };
+
+  /* Wait for loading image */
+  const waitForLoadingImage = (imageLink) => {
+    setImagesArray((prevArray) => {
+      const newArray = [...prevArray, imageLink];
+      return newArray;
+    });
   };
 
   return (
@@ -75,14 +84,25 @@ const AllNews = () => {
           {articlesToDisplay.map((article, index) => {
             return (
               <Card className="card" key={index}>
-                <Card.Img src={article.image} width={"100%"} height={"50%"} />
+                <div className="image-field">
+                  {!imagesArray.includes(article.image) && (
+                    <div className="news-image-alt">
+                      <Spinner variant="success" />
+                    </div>
+                  )}
+                  <Card.Img
+                    src={article.image}
+                    className="card-image-news"
+                    onLoad={() => waitForLoadingImage(article.image)}
+                  />
+                </div>
                 <Card.Body className="card-body">
                   <Card.Text>
                     Date :{" "}
                     {article.publish_date.replace("T", "  -  ").slice(0, -1)}
                   </Card.Text>
                   <Card.Text>Source : {article.author}</Card.Text>
-                  <Card.Title className="card-img">{article.title}</Card.Title>
+                  <Card.Title>{article.title}</Card.Title>
                   <Card.Text className="card-text">{article.text}</Card.Text>
                   <Button
                     href={article.url}

@@ -12,9 +12,9 @@ const SlideShowApp2 = () => {
         <DateTime />
       </div>
       <div className="slide">
-        <h1>BUSINESS NEWS</h1>
-        <Button variant="warning">
-          <Link to="/News/business-news">GO TO BUSINESS NEWS</Link>
+        <h1>SPORTS LEAGUES</h1>
+        <Button variant="primary">
+          <Link to="/News/sports-news">GO TO SPORTS LEAGUES</Link>
         </Button>
       </div>
     </div>

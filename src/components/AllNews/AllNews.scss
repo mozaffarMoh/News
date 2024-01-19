@@ -2,7 +2,8 @@
 .pagination,
 .card,
 .card-button,
-.card-body {
+.card-body,
+.news-image-alt {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -36,9 +37,21 @@
     box-shadow: 5px 5px 20px 5px gainsboro;
 }
 
+
+.image-field {
+    position: relative;
+}
+
 .card-img {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-radius: 10px;
+}
+
+.news-image-alt {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgb(224, 224, 230);
 }
 
 .card-text {

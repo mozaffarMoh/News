@@ -1,7 +1,7 @@
 import "./SportsNews.scss";
 import axios from "axios";
 import React from "react";
-import { Card, Pagination, Table } from "react-bootstrap";
+import { Card, Pagination, Spinner, Table } from "react-bootstrap";
 import Header from "../Header/Header";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 import Footer from "../Footer/Footer";
@@ -10,6 +10,11 @@ const SportsNews = () => {
   const [spinner, setSpinner] = React.useState(false);
   const [articles, setArticles] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(1);
+  const [pginationFirst, setPginationFirst] = React.useState(0);
+  const [paginationEnd, setPaginationEnd] = React.useState(pginationFirst + 12);
+  const [flagImagesArray, setFlagImagesArray] = React.useState([]);
+  const [leagueImagesArray, setLeagueImagesArray] = React.useState([]);
+
   const itemsPerPage = 8;
 
   /* Get All News */
@@ -43,30 +48,55 @@ const SportsNews = () => {
 
   const changePage = (page) => {
     setCurrentPage(page);
+    if (page === paginationEnd + 1) {
+      setPginationFirst(pginationFirst + 12);
+      setPaginationEnd(paginationEnd + 12);
+    }
+    if (page === paginationEnd - 12) {
+      setPginationFirst(pginationFirst - 12);
+      setPaginationEnd(paginationEnd - 12);
+    }
+  };
+
+  /* Wait for loading image */
+  const waitForLoadingFlagImage = (imageLink) => {
+    setFlagImagesArray((prevArray) => {
+      const newArray = [...prevArray, imageLink];
+      return newArray;
+    });
+  };
+  const waitForLoadingLeagueImage = (imageLink) => {
+    setLeagueImagesArray((prevArray) => {
+      const newArray = [...prevArray, imageLink];
+      return newArray;
+    });
   };
 
   return (
     <div>
       <Header />
 
+      {/* Pagination */}
       <Pagination size={"sm"} className="pagination">
         <Pagination.Prev
           className="paginationItem"
           onClick={() => changePage(currentPage - 1)}
           disabled={currentPage === 1}
         />
-        {paginationArray.slice(0, 10).map((page, index) => {
-          return (
-            <Pagination.Item
-              className="paginationItem"
-              key={page}
-              active={page === currentPage}
-              onClick={() => changePage(page)}
-            >
-              {page}
-            </Pagination.Item>
-          );
-        })}
+        {paginationArray
+          .slice(pginationFirst, paginationEnd)
+          .map((page, index) => {
+            return (
+              <Pagination.Item
+                className="paginationItem"
+                key={index}
+                active={page === currentPage}
+                onClick={() => changePage(page)}
+              >
+                {page}
+              </Pagination.Item>
+            );
+          })}
         <Pagination.Next
           className="paginationItem"
           onClick={() => changePage(currentPage + 1)}
@@ -85,10 +115,20 @@ const SportsNews = () => {
                   {/* Flag image */}
                   <div className="card-field">
                     {article.country.flag ? (
-                      <Card.Img
-                        src={article.country.flag}
-                        className="flag-image"
-                      />
+                      <div>
+                        {!flagImagesArray.includes(article.country.flag) && (
+                          <div className="image-alt flag-image-alt">
+                            <Spinner variant="success" />
+                          </div>
+                        )}
+                        <Card.Img
+                          src={article.country.flag}
+                          className="flag-image"
+                          onLoad={() =>
+                            waitForLoadingFlagImage(article.country.flag)
+                          }
+                        />
+                      </div>
                     ) : (
                       <h1>World</h1>
                     )}
@@ -98,10 +138,20 @@ const SportsNews = () => {
                   {/* League Image */}
                   <div className="card-field">
                     {article.league.logo && (
-                      <Card.Img
-                        src={article.league.logo}
-                        className="league-image"
-                      />
+                      <div>
+                        {!leagueImagesArray.includes(article.league.logo) && (
+                          <div className="image-alt league-image-alt">
+                            <Spinner variant="success" />
+                          </div>
+                        )}
+                        <Card.Img
+                          src={article.league.logo}
+                          className="league-image"
+                          onLoad={() =>
+                            waitForLoadingLeagueImage(article.league.logo)
+                          }
+                        />
+                      </div>
                     )}
                     <Card.Text> {article.league.name}</Card.Text>
                   </div>
