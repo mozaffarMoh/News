@@ -115,7 +115,7 @@ const SportsNews = () => {
                   {/* Flag image */}
                   <div className="card-field">
                     {article.country.flag ? (
-                      <div>
+                      <div className="card-field-with-loading">
                         {!flagImagesArray.includes(article.country.flag) && (
                           <div className="image-alt flag-image-alt">
                             <Spinner variant="success" />
@@ -138,7 +138,7 @@ const SportsNews = () => {
                   {/* League Image */}
                   <div className="card-field">
                     {article.league.logo && (
-                      <div>
+                      <div className="card-field-with-loading">
                         {!leagueImagesArray.includes(article.league.logo) && (
                           <div className="image-alt league-image-alt">
                             <Spinner variant="success" />

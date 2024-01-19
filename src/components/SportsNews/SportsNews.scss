@@ -3,7 +3,8 @@
 .card,
 .card-fields,
 .card-field,
-.card-field .image-alt {
+.card-field .image-alt,
+.card-field-with-loading {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -45,6 +46,7 @@
 
 .card-field {
     flex-direction: column;
+    width: 50%;
 
     .image-alt {
         position: absolute;
@@ -57,6 +59,10 @@
     .league-image-alt {
         width: 150px;
     }
+}
+
+.card-field-with-loading {
+    width: 50%;
 }
 
 .flag-image {
@@ -76,15 +82,24 @@
     }
 
     .card {
-        width: 350px;
+        width: 345px !important;
     }
 
+    .flag-image {
+        width: 80px;
+    }
+
+    .flag-image-alt {
+        width: 80px;
+    }
+
+
     .league-image {
-        width: 100px;
+        width: 80px;
     }
 
     .league-image-alt {
-        width: 100px;
+        width: 80px;
     }
 
 
